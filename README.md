@@ -65,9 +65,9 @@ To run the Flask application locally without using Docker, follow these steps:
 
 ### Configuration
 
-Update the `SOLR_URL` in `app.py` to point to your local or remote Solr instance.
+Update the `SOLR_URL` in `config.py` to point to your local or remote Solr instance.
 
-For example, if your local Solr instance is running on `http://localhost:8983/solr/search_pdf`, update `app.py` as follows:
+For example, if your local Solr instance is running on `http://localhost:8983/solr/search_pdf`, update `config.py` as follows:
 
 ```python
 SOLR_URL = 'http://localhost:8983/solr/search_pdf'
@@ -98,7 +98,7 @@ This endpoint displays an HTML form to search for PDF files by filename or conte
 
 ## Configuration
 
-You can configure the following settings in `app.py`:
+You can configure the following settings in `config.py`:
 
 - `UPLOAD_FOLDER`: The path to the folder where uploaded PDF files are stored. Defaults to `./`.
 - `ALLOWED_EXTENSIONS`: A set of allowed file extensions for uploads. Defaults to `{'pdf'}`.

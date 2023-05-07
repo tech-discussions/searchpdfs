@@ -14,9 +14,9 @@ from werkzeug.utils import secure_filename
 from tika import parser
 import pysolr
 
-UPLOAD_FOLDER = './'
-ALLOWED_EXTENSIONS = {'pdf'}
-SOLR_URL = 'http://solr:8983/solr/search_pdf'
+# Import variables from config.py
+from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS, SOLR_URL
+
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
