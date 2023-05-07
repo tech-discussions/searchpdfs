@@ -3,35 +3,40 @@
 This project demonstrates how to index PDF files and search their contents using Apache Solr, Tika, and Flask.
 
 ## Architecture
-                         +---------------------+ 
-                         |   User              | 
-                         |   Browser           | 
-                         |                     | 
-                         +----------+----------+ 
-                                    | 
-                                    | HTML/CSS/JavaScript 
-                                    | 
-                          +---------+---------+ 
-                          |  Flask Application | 
-                          |                    | 
-                          +---------+---------+ 
-                                    | 
-                     +--------------+--------------+ 
-                     |                             | 
-               +-----+----+                 +------+------+
-               | Upload    |                 | Search     |
-               | PDF Files |                 | PDFs       |
-               +-----+----+                 +------+------+
-                     |                             | 
-          +----------+-----------+     +-----------+-----------+ 
-          |                      |     |                       | 
-    +-----+--------+    +--------+----+     +--------+----------+ 
-    | Tika Parser  |    | Solr Indexer |     | Search Interface  | 
-    |(Extract Text |    |(Index Text   |     |                    |
-    |  Content from|    |Content for   |     |                    |
-    |     PDF)     |    | Searching)   |     |                    |
-    +--------------+    +-------------+     +--------------------+
 
+    +------------+    +------------+    +------------+
+    |            |    |            |    |            |
+    |   User     |    |   Flask    |    |   Search   |
+    |  Browser   |<-->| Application|<-->|  Interface |
+    |            |    |            |    |            |
+    +------------+    +-----+------+    +-----+------+
+                             |                 |
+                             |  HTML / CSS /   |
+                             |  JavaScript     |
+                             |                 |
+                    +--------+--------+--------+-------+
+                    |                 |                 |
+             +------+    Upload      +------+   Search  +------+
+             |      |   PDF Files    |      |   PDFs    |      |
+             |      v                 v      |           v      |
+             | +-------------+ +-------------+ +-------------+ |
+             | |             | |             | |             | |
+             | |   Upload    | |    Tika     | |     Solr    | |
+             | |   Service   | |   Server    | |   Service   | |
+             | |             | |             | |             | |
+             | +-------------+ +-------------+ +-------------+ |
+             +-------------------+-------------+---------------+
+                                 |             |
+                        +--------+-------------+-------+
+                        |                              |
+                  +-----+--------------+     +-------+------------+
+                  |    Tika Parser      |     |   Solr Indexer     |
+                  |(Extract Text Content|     |(Index Text Content |
+                  |     from PDF)       |     |  for Searching)    |
+                  +---------------------+     +--------------------+
+
+
+In this diagram, the user's browser sends requests to the Flask application, which processes the requests and sends responses back to the browser. The Flask application also communicates with the Upload Service, Tika Server, and Solr Service to handle uploading PDF files, extracting text content, and indexing text content for searching. The Tika Parser is responsible for extracting text content from PDF files, and the Solr Indexer is responsible for indexing text content for searching.
 
 ## Overview
 
