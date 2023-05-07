@@ -35,12 +35,50 @@ The following libraries and tools are used in this project:
 └── UPLOAD_FOLDER           # Folder for storing uploaded PDF files
 ```
 
-## Installation and Setup
+## Installation and Setup(using Docker)
 
 1. Install Docker and Docker Compose on your machine if you haven't already.
 2. Clone the project repository.
 3. Navigate to the project directory.
 4. Run `docker-compose up --build` to build the Docker images and start the containers.
+5. Run `docker-compose down` to stop and remove the Docker containers.
+
+## Running the Flask Application Locally (without Docker)
+
+To run the Flask application locally without using Docker, follow these steps:
+
+### Prerequisites
+
+1. Install Python 3 on your machine.
+2. Install Apache Solr locally or have access to a remote Solr instance.
+3. Install Java Runtime Environment (JRE) for Tika.
+
+### Setup
+
+1. Clone the project repository.
+2. Navigate to the project directory.
+3. Create a virtual environment: `python3 -m venv venv`
+4. Activate the virtual environment:
+   - On macOS and Linux: `source venv/bin/activate`
+   - On Windows: `venv\Scripts\activate`
+5. Install the Python dependencies: `pip install -r requirements.txt`
+
+### Configuration
+
+Update the `SOLR_URL` in `app.py` to point to your local or remote Solr instance.
+
+For example, if your local Solr instance is running on `http://localhost:8983/solr/search_pdf`, update `app.py` as follows:
+
+```python
+SOLR_URL = 'http://localhost:8983/solr/search_pdf'
+```
+
+### Running the Application
+
+1. In the project directory, start the Flask application: `python app.py`
+2. Access the application at `http://localhost:8000`
+
+**Note**: To ensure that the Solr instance is properly set up, you might need to create a collection and configure its schema as demonstrated in the previous sections.
 
 ## Usage
 
