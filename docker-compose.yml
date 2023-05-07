@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  solr:
+    image: solr:latest
+    ports:
+      - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - search_pdf
+
+  flask_app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - solr
+
+volumes:
+  solr_data:
