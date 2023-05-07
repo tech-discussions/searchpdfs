@@ -29,7 +29,7 @@ The following libraries and tools are used in this project:
 ```
 .
 ├── app.py                  # Flask application
-├── config.py                  # Flask application
+├── config.py               # Configuration file for the Flask application
 ├── Dockerfile              # Dockerfile for building the Flask application container
 ├── docker-compose.yml      # Docker Compose configuration for running the entire project
 ├── requirements.txt        # Python dependencies
