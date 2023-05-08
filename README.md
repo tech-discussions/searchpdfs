@@ -2,6 +2,14 @@
 
 This project demonstrates how to index PDF files and search their contents using Apache Solr, Tika, and Flask.
 
+## Motivation
+
+In today's world, we are surrounded by data in various formats like text, audio, images, and videos. Text data is one of the most abundant and valuable sources of information. With the increase in the use of PDFs, it becomes challenging to extract relevant information from them. This project aims to solve this problem by building a search engine that can extract text content from PDF files, index them, and allow users to search for the desired information. 
+
+The search engine can be useful in various domains like academics, research, legal, and corporate sectors. It can help users save time and effort in searching for information from multiple PDF files. Furthermore, the project can be extended to support other formats like images, audio, and videos, making it a powerful tool for information retrieval.
+
+By using open-source technologies like Flask, Apache Solr, Apache PDFBox, and PyPDF2, the project is accessible to a wide range of users, who can contribute to its development and use it for their specific needs.
+
 ## Architecture
 
     +------------+    +------------+    +------------+
