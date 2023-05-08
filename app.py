@@ -64,7 +64,7 @@ def search_solr():
         field = 'id' if search_option == 'filename' else 'content'
         solr = pysolr.Solr(SOLR_URL, timeout=10)
         results = solr.search(f"{field}:(*{query}*)")
-        return search_form(results, query, search_option)
+    return search_form(results, query, search_option)
 
 
 def search_form(results, query, search_option):
